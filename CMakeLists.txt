@@ -1,20 +1,18 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.30)
 project(Playerr)
 
-# подключение conan toolchain
-include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
+# форс 17 (пока не знаю зачем), без фоллбека, без gnu
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# generate compile_commands.json for clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# нужно для линковки
+set(CMAKE_AUTOMOC ON)
 
 # Ищем нужные модули Qt
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-# Заголовки
-include_directories(include)
-
-# Добавляем исполняемый файл
-add_executable(QtApp
-    src/main.cpp
-    src/MainWindow.cpp
-)
-
-# Линкуем с Qt
-target_link_libraries(QtApp PRIVATE Qt6::Widgets)
+add_subdirectory(src)
