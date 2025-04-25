@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "AudioDecoder.hpp"
 #include <QApplication>
 
 int main(int argc, char *argv[])

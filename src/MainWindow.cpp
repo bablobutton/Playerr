@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "AudioDecoder.hpp"
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+
 }
 
 void MainWindow::onButtonClicked()
