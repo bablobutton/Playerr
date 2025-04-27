@@ -1,22 +1,23 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QString>
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void onButtonClicked();
+    void onOpenFile();
+
 
 private:
-    QPushButton *m_button;
-};
+    void showAudioInfo(const QString &filePath);
 
-#endif // MAINWINDOW_H
+    QPushButton *m_openButton;
+    QPushButton *m_infoButton;
+};
